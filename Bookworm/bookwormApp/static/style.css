@@ -1,0 +1,201 @@
+body{
+  background: url('https://img.freepik.com/free-vector/colored-books-seamless-pattern-with-leaves-candle-coffee-hands-that-hold-books-reading-hand-drawn-illustration_296715-80.jpg?size=338&ext=jpg');
+  font-family: cursive;
+}
+
+.nav{
+  background-color: #94d1bd;
+  display: flex;
+  justify-content: center;
+  font-size: 24px;
+  border-radius: 5px;
+
+}
+.nav-link{
+  color: #444444;
+}
+
+.nav-link:hover{
+  color: #3d8f74;
+  background: none !important;
+}
+
+.nav-link:focus, .dropdown-item:focus{
+  color:#3d8f74 !important;
+  background: none !important;
+}
+
+.panel{
+  width: 50%;
+  margin: auto;
+}
+
+.panel-body{
+font-size: 20px;
+background-color: #f4fcf9;
+color: #444444;
+border-radius: 5px;
+text-align: center !important;
+}
+
+.panel-footer{
+  font-size: 18px;
+  float: right;
+  background-color: #94d1bd;
+  color: #444444;
+  border-radius: 5px;
+}
+
+.panel-header{
+  font-size: 24px;
+  color: #444444;
+  display: flex;
+  justify-content: center;
+  background-color: #94d1bd;
+  padding: 5px;
+}
+
+.homeBtn, .logOutBtn{
+  color: #444444;
+}
+
+.homeBtn:hover, .loginPageBtn:hover, .logOutBtn:hover{
+  color: #3d8f74;
+  text-decoration: none;
+}
+
+.logInClass, .regClass{
+  margin-top:5% !important;
+}
+
+.procitaneKnjigeStr{margin-top:5% !important;}
+.loginPageBtn{
+  background: none;
+  border: none;
+  color: #444444;
+}
+
+#id_username{width: 160px;}
+#id_password{width: 225px;}
+#id_firstName{width: 257px;}
+#id_lastName{width: 220px;}
+#id_email{width: 175px;}
+#id_password1{width: 225px;}
+#id_password2{width: 150px;}
+
+.dropdown-item{
+  font-size: 20px;
+  color: #444444;
+}
+
+.dropdown-item:hover{
+    color:#3d8f74 !important;
+    background: none !important;
+}
+
+.dropdown-menu{
+  background-color: #f4fcf9;
+  border-radius: 15px;
+}
+
+
+.vh-100{
+  width: 80% !important;
+  margin: auto;
+  margin-top: 2%;
+  color: #444444;
+}
+
+#mesecIocenaBadge{
+  color: #444444;
+  background-color: #f4fcf9;
+  font-size: 18px;
+  font-weight: normal;
+
+}
+
+thead{
+  font-size: 20px;
+  font-weight: bold;
+}
+
+tbody{
+  font-size: 18px;
+  text-align: justify;
+}
+
+#nslAut{
+  font-weight: normal;
+}
+
+#naslovProcitaneKnjige{
+  font-weight: bold;
+  font-size: 24px;
+  color: #444444;
+}
+
+.btns{
+  float: right;
+}
+
+#dodajKnjigu{
+  font-size: 32px;
+  color: #444444;
+  font-weight: normal;
+}
+
+#dodajKnjigu:hover, #dodajKnjigu:focus{
+  text-decoration: none;
+}
+#pen, #quote, #eraser{
+  font-size: 24px;
+  color: #3d8f74;
+  padding-right: 10px;
+}
+
+#dodajKnjiguPanel{
+  width: 50% !important;
+  margin-top: 2%;
+}
+
+
+.form-control{
+  width: 350px;
+}
+
+#naslovDodajKnjigu{
+  font-weight: bold;
+}
+
+label{
+  width: 150px;
+  float: left;
+  margin-left: 5%;
+  font-weight: normal;
+}
+
+
+#ddj{
+  font-size: 20px;
+  color:#444444;
+}
+
+#ddj:hover, #ddj:focus{
+  text-decoration: none;
+}
+
+#vidiCitate, #vidiCitate:hover, #vidiCitate:focus{
+  color: #444444;
+  text-decoration: none;
+}
+
+textarea{
+  max-width: 500px;
+  max-height: 800px;
+  resize: vertical;
+}
+
+#pb{
+  float: left;
+  text-align: justify;
+}

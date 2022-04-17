@@ -1,0 +1,28 @@
+<!-- templates/registration/login.html -->
+{% extends 'base.html' %}
+
+{% block title %}Uloguj se{% endblock %}
+
+
+{% block content %}
+<div class="logInClass">
+<div class="panel panel-default">
+  <div class="panel-header">
+    Uloguj se
+  </div>
+  <div class="panel-body">
+    <form method="post">
+      {% csrf_token %}
+      <div>
+      <p> Korisničko ime:  {{ form.username }} </p>
+      <p> Lozinka: {{ form.password }} </p>
+      </div>
+  </div>
+  <div class="panel-footer">
+    <button class="loginPageBtn" type="submit">Uloguj se</button> |
+    <a class="loginPageBtn" href="{% url 'password_reset' %}">Zaboravio/la si lozinku? </a>
+  </form>
+  </div>
+</div>
+</div>
+{% endblock %}

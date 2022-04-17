@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Dodaj citat{% endblock %}
+
+{% block content %}
+<div id = "dodajKnjiguPanel" class="panel panel-default">
+  <div id="naslovDodajKnjigu" class="panel-header">
+    Dodaj citat za knjigu: {{ knjiga.naslov}}, {{ knjiga.autor }}
+  </div>
+  <div id="bodyPanel" class="panel-body">
+    <form action="{% url 'dodajCitat' knjiga.id %}" method="post">
+      {% csrf_token %}
+      <br>
+      <label for="tekst">Tekst:&nbsp;</label>
+      <textarea name="tekst" rows="8" cols="50" required="required"></textarea>
+
+  </div>
+  <div class="panel-footer">
+        <button id="ddj" type="submit"class="btn btn-link">Dodaj</button>
+  </form>
+  </div>
+</div>
+
+{% endblock %}

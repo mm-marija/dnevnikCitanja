@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}Citati{% endblock %}
+
+{% block content %}
+
+<div id="dodajKnjiguPanel" class="panel panel-default">
+  <div class="panel-header">
+    Citati uneti za knjigu: {{ knjiga.naslov }}, {{ knjiga.autor }}
+  </div>
+  <div class="panel-body">
+    <div id="pb">
+      {% if citati %}
+      {% for c in citati %}
+       {{ forloop.counter }}.
+        {{ c.tekst }} <a id="eraser" href="{% url 'obrisiCitat' c.id %}" data-mdb-toggle="tooltip" title="Obriši">
+          <i class="bi-eraser"></i></a>
+<br><br>
+        {% endfor %}
+    {% else %}
+      <p> Nema citata </p>
+      {% endif %}
+      </div>
+  </div>
+  <div class="panel-footer">
+    <a id="quote" href="{% url 'dodajCitat' knjiga.id %}" data-mdb-toggle="tooltip" title="Dodaj citat"><<i class="bi-chat-quote"></i></a>
+
+  </div>
+</div>
+
+
+
+
+{% endblock %}

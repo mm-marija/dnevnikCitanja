@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.bundle.min.js'></script>
+<script>
+    $(document).ready(function() {
+        var ctx = $("#chart-line");
+        var myLineChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: {{ labels|safe }},
+                datasets: [{
+                    data: {{ data|safe }},
+                    backgroundColor: ["rgba(255, 0, 0, 0.5)", "rgba(100, 255, 0, 0.5)", "rgba(200, 50, 255, 0.5)", 
+                    "rgba(0, 100, 255, 0.5)", "rgba(60, 179, 113, 0.5)", "rgba(238, 130, 238, 0.5)", "rgba(255, 165, 0)",
+                    "rgba(255, 99, 71, 0.5)","rgba(215, 145, 181, 0.5)", "rgba(109, 124, 218, 0.5)", "rgba(189, 221, 44, 0.5)",
+                    "rgba(44, 221, 193, 0.5)", "rgba(127, 44, 221, 0.5)", "rgba(20, 222, 43, 0.5)", "rgba(221, 44, 79, 0.5)"]
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: 'Meseci'
+                }
+            }
+        });
+    });
+</script>
+<div style="font-size:22px; color:#444444; margin-left:23%;" class="page-content page-container" id="page-content">
+    <div class="padding">
+        <div class="row">
+            <div class="container-fluid d-flex justify-content-center">
+                <div class="col-sm-8 col-md-6">
+                    <div style="background-color: #f4fcf9; width:600px;" class="card">
+                        <div class="card-header">Pročitano po žanrovima</div>
+                        <div class="card-body" style="height: 420px;font-size:22px;">
+                           <canvas id="chart-line"  width="300" height="200" class="chartjs-render-monitor" style="display: flex; width: 200px; height: 200px;"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

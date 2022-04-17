@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block title %}Pročitane knjige{% endblock %}
+
+{% block content %}
+<section class="vh-100" style="background-color: #f4fcf9;">
+  <div class="container py-5 h-100">
+    <div>
+      <div class="col-md-11 col-xl-9">
+        <div class="card">
+          <div class="card-header p-3">
+            <h3 id="naslovProcitaneKnjige" class="mb-0"><i class="bi-book"></i> Pročitane knjige <div class="btns">
+              <a id="dodajKnjigu" data-mdb-toggle="tooltip" title="Dodaj knjigu"href="{% url 'dodajKnjigu' %}"> <i class="bi-bookmark-plus"></i> </a></h3>
+
+          </div>
+          <br>
+
+          <div class="card-body" data-mdb-perfect-scrollbar="true" style="position: relative;">
+            <table class="table mb-0">
+              <thead>
+                <tr>
+                  <th scope="col">Naslov knjige | Autor </th>
+                  <th scope="col"> Žanr </th>
+                  <th scope="col">Mesec | Ocena </th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              {% if knjige %}
+              <tbody>
+                  {% for k in knjige %}
+                  {% if k.procitano == True %}
+                <tr class="fw-normal">
+                  <th class="align-middle" id="nslAut">
+                       <a id="vidiCitate" data-mdb-toggle="tooltip" title="Vidi citate"href="{% url 'vidiCitate' k.id %}">
+                         <i class="bi-chat-quote-fill"></i></a>
+                      {{ k.naslov }},
+                    <span class="ms-2">{{ k.autor }} </span>
+                  </th>
+                  <td class="align-middle">
+                    <span> {{k.zanr.all|join:", "}}</span>
+                  </td>
+                  <td class="align-middle">
+                    {{ k.mesec}}, &nbsp; {{ k.ocena }} <i class="bi-star-fill"></i>
+                  </td>
+                  <td class="align-right">
+                    <a id="pen" href="{% url 'izmeniKnjigu' k.id %}" data-mdb-toggle="tooltip" title="Izmeni"><i class="bi-pen"></i></a>
+                    <a id="quote" href="{% url 'dodajCitat' k.id %}" data-mdb-toggle="tooltip" title="Dodaj citat"><<i class="bi-chat-quote"></i></a>
+                    <a id="eraser" href="{% url 'obrisiKnjigu' k.id %}" data-mdb-toggle="tooltip" title="Obriši"><i class="bi-eraser"></i></a>
+                  </td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+                  {% else %}
+                  <tr class="fw-normal">
+                    <th id="nslAut">
+                    Nisi zabeležio/la nijednu pročitanu knjigu!
+                    </th>
+                    </tr>
+              </tbody>
+              {% endif %}
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,27 @@
+<!-- templates/home.html -->
+{% extends 'base.html' %}
+
+{% block title %}Početna{% endblock %}
+
+{% block content %}
+<br><br>
+<div class="panel panel-default">
+  <div class="panel-body">
+    {% if user.is_authenticated %}
+     Dobrodošao/la u online dnevnik pročitanih knjiga,
+     {{ user.username }}! <br> Odaberi opciju iz menija i započni sa vođenjem online knjiškog dnevnika! <br>
+     Takođe, možeš pratiti listu svojih nepročitanih knjiga, listu želja, kao i različite lične statistike. Uživaj! :)
+    {% else %}
+    <p> Dobrodošao/la u online dnevnik pročitanih knjiga!<br>Da započneš sa korišćenjem aplikacije, uloguj se ili napravi nalog: </p>
+    {% endif %}
+  </div>
+    <div class="panel-footer">
+      {% if user.is_authenticated %}
+      <a class="logOutBtn" href="{% url 'logout' %}">Izloguj se </a>
+        {% else %}
+        <a class="homeBtn" href="{% url 'login' %}">Uloguj se</a> |
+        <a class="homeBtn" href="{% url 'signup' %}">Napravi nalog</a>
+      {% endif %}
+</div>
+  </div>
+{% endblock %}

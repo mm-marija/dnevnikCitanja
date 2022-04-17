@@ -1,0 +1,30 @@
+<!-- templates/signup.html -->
+{% extends 'base.html' %}
+
+{% block title %}Napravi nalog{% endblock %}
+
+{% block content %}
+
+<div class="regClass">
+<div class="panel panel-default">
+  <div class="panel-header">
+    Napravi nalog
+  </div>
+  <div class="panel-body">
+    <form method="post">
+      {% csrf_token %}
+      <p> &nbsp; Korisničko ime:  {{ form.username }} </p>
+      <p> &nbsp; Ime: {{ form.firstName }} </p>
+      <p> &nbsp; Prezime:  {{ form.lastName }} </p>
+      <p> &nbsp; Email adresa:   {{ form.email }} </p>
+      <p> &nbsp; Lozinka:  {{ form.password1 }} </p>
+      <p> &nbsp; Potvrda lozinke:  {{ form.password2 }} </p>
+  </div>
+  <div class="panel-footer">
+    <button class="loginPageBtn" type="submit">Napravi nalog</button>
+  </form>
+  </div>
+</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}Dodaj knjigu na listu želja {% endblock %}
+
+{% block content %}
+<div id = "dodajKnjiguPanel" class="panel panel-default">
+  <div id="naslovDodajKnjigu" class="panel-header">
+    Dodaj knjigu na listu želja
+  </div>
+  <div id="bodyPanel" class="panel-body">
+    <form action="{% url 'dodajZelju' %}" method="post">
+      {% csrf_token %}
+      <br>
+      <label for="naslov">Naslov:&nbsp;</label>
+      <input id="n" type="text" class="form-control" name="naslov" required="required"><br>
+
+      <label for="autor">Autor:&nbsp;</label>
+      <input id="a" type="text" class="form-control" name="autor" required="required"><br>
+
+      <label for="zanr">Žanr:&nbsp;</label>
+      <select multiple="multiple" id="z" class="form-control" name="zanr" required="required">
+        {% for zanr in zanrovi %}
+        <option value="{{ zanr.id }}"> {{ zanr.naziv }}</option>
+        {% endfor %}
+      </select><br>
+  </div>
+  <div class="panel-footer">
+        <button id="ddj" type="submit"class="btn btn-link">Dodaj</button>
+  </form>
+  </div>
+</div>
+
+{% endblock %}

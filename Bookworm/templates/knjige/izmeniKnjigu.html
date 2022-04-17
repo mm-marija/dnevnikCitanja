@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block title %}Izmeni knjigu{% endblock %}
+
+{% block content %}
+<div id = "dodajKnjiguPanel" class="panel panel-default">
+  <div id="naslovDodajKnjigu" class="panel-header">
+    Izmeni knjigu
+  </div>
+  <div id="bodyPanel" class="panel-body">
+    <form action="{% url 'izmeniKnjigu' knjiga.id %}" method="post">
+      {% csrf_token %}
+      <br>
+
+      <label for="naslov">Naslov:&nbsp;</label>
+      <input id="n" type="text" class="form-control" name="naslov" required="required" value="{{  knjiga.naslov }}"><br>
+
+      <label for="autor">Autor:&nbsp;</label>
+      <input id="a" type="text" class="form-control" name="autor" required="required" value="{{  knjiga.autor }}"><br>
+
+      <div class="zanroviSelect">
+      <label id="dZ" for="zanr">Dodaj žanr:&nbsp;</label>
+      <select multiple="multiple" id="z" class="form-control"  name="zanr" >
+        {% for zanr in zanrovi %}
+            <option value="{{zanr.id}}"> {{ zanr.naziv }}</option>
+        {% endfor %}
+      </select> <br>
+      <label id = "obrZ" for="zanr">Obriši žanr:&nbsp;</label>
+      <select multiple="multiple" id="oZ" class="form-control"  name="obrZanr" >
+        {% for zanr in zanrovi %}
+            <option value="{{ zanr.id}}"> {{ zanr.naziv }}</option>
+        {% endfor %}
+      </select>
+      </div>
+      <br>
+
+      <label for="mesec">Mesec: &nbsp;</label>
+      <select id="m" class="form-control" name="mesec" required="required">
+        <option selected value="{{  knjiga.mesec }}"> {{ knjiga.mesec }} </option>
+        <option value="Januar"> Januar </option>
+        <option value="Februar"> Februar </option>
+        <option value="Mart"> Mart </option>
+        <option value="April"> April </option>
+        <option value="Maj"> Maj </option>
+        <option value="Jun"> Jun </option>
+        <option value="Jul"> Jul </option>
+        <option value="Avgust"> Avgust </option>
+        <option value="Septembar"> Septembar </option>
+        <option value="Oktobar"> Oktobar </option>
+        <option value="Novembar"> Novembar </option>
+        <option value="Decembar"> Decembar </option>
+      </select><br>
+
+      <label for="ocena">Ocena: &nbsp;</label>
+            <select id="o" class="form-control" name="ocena" required="required">
+              <option selected value="{{  knjiga.ocena }}"> {{ knjiga.ocena}} </option>
+              <option value="1"> 1 </option>
+              <option value="1.5"> 1.5 </option>
+              <option value="2"> 2 </option>
+              <option value="2.5"> 2.5 </option>
+              <option value="3"> 3 </option>
+              <option value="3.5"> 3.5 </option>
+              <option value="4"> 4 </option>
+              <option value="4.5"> 4.5 </option>
+              <option value="5"> 5 </option>
+            </select><br>
+
+  </div>
+  <div class="panel-footer">
+        <button id="ddj" type="submit"class="btn btn-link">Izmeni </button>
+  </form>
+  </div>
+
+</div>
+{% endblock %}
